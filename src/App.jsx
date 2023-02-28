@@ -8,10 +8,11 @@ const App = () => {
   // inicializar o contrato editionDrop e token
   const editionDropAddress = "0x31DeBdbD079eeB9A0513ccbf5caeA2B398915A05"
   const { contract: editionDrop } = useContract(editionDropAddress, "edition-drop");
-  const { contract: token } = useContract("0xa9cf14497dB192544d71707b8f87F1d317416782", "token");
+   // Contrato TOKEN
+  const { contract: token } = useContract('0xa9cf14497dB192544d71707b8f87F1d317416782', 'token');
   // Hook para sabermos se o usuário tem nosso NFT.
   const { data: nftBalance } = useNFTBalance(editionDrop, address, "0")
-  // Contrato TOKEN
+ 
 
 //se tem o NFT
   const hasClaimedNFT = useMemo(() => {
