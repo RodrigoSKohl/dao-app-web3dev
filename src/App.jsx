@@ -1,4 +1,5 @@
-import { useAddress, ConnectWallet, Web3Button, useContract, useNFTBalance } from '@thirdweb-dev/react';
+import { useAddress, useNetwork, ConnectWallet, Web3Button, useContract, useNFTBalance } from '@thirdweb-dev/react';
+import { ChainId } from '@thirdweb-dev/sdk';
 import { useState, useEffect, useMemo } from 'react';
 import { AddressZero } from "@ethersproject/constants";
 
@@ -6,6 +7,10 @@ import { AddressZero } from "@ethersproject/constants";
 const App = () => {
   // Usando os hooks que o thirdweb nos dá.
   const address = useAddress();
+  const network = useNetwork();
+  
+
+  
   console.log("👋 Address:", address);
   // inicializar o contrato editionDrop e token
   const editionDropAddress = "0x31DeBdbD079eeB9A0513ccbf5caeA2B398915A05"
@@ -23,6 +28,8 @@ const App = () => {
   const hasClaimedNFT = useMemo(() => {
     return nftBalance && nftBalance.gt(0)
   }, [nftBalance])
+
+  
 
  // Guarda a quantidade de tokens que cada membro tem nessa variável de estado.
 const [memberTokenAmounts, setMemberTokenAmounts] = useState([]);
@@ -317,6 +324,18 @@ if (hasClaimedNFT) {
     )
   };
 
+  if (address && (network?.[0].data.chain.id !== ChainId.Goerli)) {
+    return (
+      <div className="unsupported-network">
+        <h2>Por favor, conecte-se à rede Goerli</h2>
+        <p>
+          Essa dapp só funciona com a rede Goerli, por favor 
+          troque de rede na sua carteira.
+        </p>
+      </div>
+    );
+  }
+
   // Renderiza a tela de cunhagem do NFT.
   return (
     <div className="mint-nft">
@@ -336,10 +355,17 @@ if (hasClaimedNFT) {
         >
           MINTE SEU NFT! (FREE)
         </Web3Button>
+        
       </div>
     </div>
   );
 
+  
+
+  
+
 }
+
+
 
 export default App;
