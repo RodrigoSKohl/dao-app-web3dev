@@ -1,4 +1,4 @@
-import { useAddress, useNetwork, ConnectWallet, Web3Button, useContract, useNFTBalance } from '@thirdweb-dev/react';
+import { useAddress, useNetwork, ConnectWallet, Web3Button, useContract, useNFTBalance, useNetworkMismatch } from '@thirdweb-dev/react';
 import { ChainId } from '@thirdweb-dev/sdk';
 import { useState, useEffect, useMemo } from 'react';
 import { AddressZero } from "@ethersproject/constants";
@@ -8,7 +8,9 @@ const App = () => {
   // Usando os hooks que o thirdweb nos dá.
   const address = useAddress();
   const network = useNetwork();
-  
+    const isMismatched = useNetworkMismatch();
+    const [, switchNetwork] = useNetwork();
+
 
   
   console.log("👋 Address:", address);
@@ -171,6 +173,14 @@ useEffect(() => {
         <p>
           Essa dapp só funciona com a rede Goerli, por favor 
           troque de rede na sua carteira.
+        </p>
+        <p>
+        <p>{isMismatched}</p>
+      {isMismatched && (
+        <button onClick={() => switchNetwork(ChainId.Goerli)}>
+          Trocar Rede
+        </button>
+      )}
         </p>
       </div>
     );
