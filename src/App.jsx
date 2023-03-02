@@ -171,14 +171,14 @@ useEffect(() => {
       <div className="unsupported-network">
         <h2>Por favor, conecte-se à rede Goerli</h2>
         <p>
-          Essa dapp só funciona com a rede Goerli, por favor 
-          troque de rede na sua carteira.
+          Voce quer torrar seus ETH maluco? 
+          Aqui só aceita testnet.
         </p>
         <p>
         <p>{isMismatched}</p>
       {isMismatched && (
         <button onClick={() => switchNetwork(ChainId.Goerli)}>
-          Trocar Rede
+          Trocar para Goerli
         </button>
       )}
         </p>
