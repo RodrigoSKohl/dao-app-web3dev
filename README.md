@@ -1,7 +1,7 @@
 # [WEB3DEV x thirdweb - construa sua própria DAO com apenas Javascript](https://bootcamp.web3dev.com.br/courses/JS_DAO)
  
 # 
-## [DEPOLY NO VERCEL](https://safadao.vercel.app/)
+## 🚀 [DEPOLY NO VERCEL](https://safadao.vercel.app/)
 
 ### APRENDIZADOS DO PROJETO
 - Construção e deploy de uma DAO usando somente ```javascript ```
@@ -10,7 +10,7 @@
 #
  
 #
-Ferramentas utilizadas no bootcamp:
+<ins>Ferramentas utilizadas no bootcamp:</ins>
 
 [GITPOD](https://www.gitpod.io/) para programar e rodar o react *(escolha pessoal)*;\
 [ALCHEMY](https://www.alchemy.com/) como node validator;\
