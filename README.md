@@ -1,11 +1,14 @@
-# WEB3DEV x thirdweb - construa sua própria DAO com apenas Javascript
+# [WEB3DEV x thirdweb - construa sua própria DAO com apenas Javascript](https://bootcamp.web3dev.com.br/courses/JS_DAO)
+ 
+# 
+## [DEPOLY NO VERCEL](https://safadao.vercel.app/)
 
-### **Bem vind@s 👋**
-Para iniciar com esse projeto, clone o repo e siga esses comandos:
+### APRENDIZADOS DO PROJETO
+- Construção e deploy de uma DAO usando somente ```javascript ```
+- Criação de contratos **ERC20** e **ERC1155** na rede ETH de testes Goreli
 
-1. Rode `npm install` no diretório raiz
-2. Rode `npm start` para iniciar o projeto
-3. Comece a codar!
-
-### **Perguntas?**
-Faça link da sua conta do Discord na [página no bootcamp](https://bootcamp.web3dev.com.br/courses/JS_DAO) para ter acesso aos canais de ajuda e monitores no servidor da WEB3DEV
+#
+ 
+#
+IDE utilizada no projeto:
+[GITPOD](https://www.gitpod.io/) *(escolha pessoal)*
