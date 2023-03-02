@@ -161,6 +161,21 @@ useEffect(() => {
     );
   }
 
+
+  
+// Se ele não estiver conectado na rede goerli retorna erro
+  if (address && (network?.[0].data.chain.id !== ChainId.Goerli)) {
+    return (
+      <div className="unsupported-network">
+        <h2>Por favor, conecte-se à rede Goerli</h2>
+        <p>
+          Essa dapp só funciona com a rede Goerli, por favor 
+          troque de rede na sua carteira.
+        </p>
+      </div>
+    );
+  }
+
 // Se o usuário já reivindicou seu NFT nós queremos mostrar a página interna da DAO para ele
 // Apenas membros da DAO vão ver isso. Renderize todos os membros + quantidade de tokens
 if (hasClaimedNFT) {
@@ -324,20 +339,10 @@ if (hasClaimedNFT) {
     )
   };
 
-  if (address && (network?.[0].data.chain.id !== ChainId.Goerli)) {
-    return (
-      <div className="unsupported-network">
-        <h2>Por favor, conecte-se à rede Goerli</h2>
-        <p>
-          Essa dapp só funciona com a rede Goerli, por favor 
-          troque de rede na sua carteira.
-        </p>
-      </div>
-    );
-  }
+
 
   // Renderiza a tela de cunhagem do NFT.
-  return (
+    return (
     <div className="mint-nft">
       <h1>Para ser SafaDAO, precisa mintar seu NFT!</h1>
       <div className="btn-hero">
@@ -359,6 +364,7 @@ if (hasClaimedNFT) {
       </div>
     </div>
   );
+        
 
   
 
