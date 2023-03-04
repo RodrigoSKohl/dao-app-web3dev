@@ -3,7 +3,7 @@ import { readFileSync } from "fs";
 
 (async () => {
   try {
-    const editionDrop = await sdk.getContract("0x31DeBdbD079eeB9A0513ccbf5caeA2B398915A05", "edition-drop");
+    const editionDrop = await sdk.getContract(nft_contract, "edition-drop");
     await editionDrop.createBatch([
       {
         name: "NIGGA AHEGAO",

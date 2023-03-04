@@ -1,0 +1,3 @@
+const nft_contract= "0x31DeBdbD079eeB9A0513ccbf5caeA2B398915A05"
+const token_contract= "0xa9cf14497dB192544d71707b8f87F1d317416782"
+const vote_contract= "0x35c1BBb07EE5A8Cb2fFD7E209b7E4b102903DB77"

@@ -7,7 +7,7 @@ import sdk from "./1-initialize-sdk.js";
       name: "SafaDAO - só proposta sacana",
 
       // Essa a localização do seu token de governança, nosso contrato ERC-20!
-      voting_token_address: "0xa9cf14497dB192544d71707b8f87F1d317416782",
+      voting_token_address: token_contract,
 
       // Depois de uma proposta ser criada, quando os membros podem começar a votar?
       // Por agora, colocamos isso como imediatamente.
