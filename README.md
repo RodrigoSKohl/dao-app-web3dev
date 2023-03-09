@@ -5,7 +5,7 @@
 
 ### APRENDIZADOS DO PROJETO
 - Construção e deploy de uma DAO usando somente ```javascript ```
-- Criação de contratos **ERC20** e **ERC1155** na rede ETH de testes Goreli utilizando as libs da [thirdweb](https://thirdweb.com/) e [ethers](https://ethers.org/)
+- Criação de contratos **ERC20** e **ERC1155** na rede ETH de testes Goreli utilizando as libs/framework da [thirdweb](https://thirdweb.com/) e [ethers](https://ethers.org/)
 
 #
  
