@@ -1,4 +1,4 @@
-import { useAddress, useNetwork, ConnectWallet, Web3Button, useContract, useNFTBalance, useNetworkMismatch } from '@thirdweb-dev/react';
+import {ThirdwebNftMedia, useAddress, useNetwork, ConnectWallet, Web3Button, useContract, useNFTBalance, useNetworkMismatch, useNFT } from '@thirdweb-dev/react';
 import { ChainId } from '@thirdweb-dev/sdk';
 import { useState, useEffect, useMemo } from 'react';
 import { AddressZero } from "@ethersproject/constants";
@@ -10,6 +10,8 @@ const App = () => {
   const network = useNetwork();
     const isMismatched = useNetworkMismatch();
     const [, switchNetwork] = useNetwork();
+
+  
 
 
   
@@ -23,6 +25,8 @@ const App = () => {
   const { contract: vote } = useContract("0x35c1BBb07EE5A8Cb2fFD7E209b7E4b102903DB77", "vote");
   // Hook para sabermos se o usuário tem nosso NFT.
   const { data: nftBalance } = useNFTBalance(editionDrop, address, "0")
+  //Hook que pega a imagem do NFT
+  const { data: mnft } = useNFT(editionDrop, "0");
   
  
 
@@ -33,6 +37,8 @@ const App = () => {
 
   
 
+
+  
  // Guarda a quantidade de tokens que cada membro tem nessa variável de estado.
 const [memberTokenAmounts, setMemberTokenAmounts] = useState([]);
 // O array guardando todos os endereços dos nosso membros.
@@ -157,11 +163,14 @@ useEffect(() => {
       <div className="landing">
         <h1>Bem vindo ao SafaDAO</h1>
         <div className="btn-hero">
-          <ConnectWallet btnTitle="Conectar Carteira" />
+          <ConnectWallet btnTitle="Conectar Carteira" modalTitle="Conectar" />
         </div>
       </div>
     );
   }
+
+ 
+
 
 
   
@@ -185,6 +194,8 @@ useEffect(() => {
       </div>
     );
   }
+
+
 
 // Se o usuário já reivindicou seu NFT nós queremos mostrar a página interna da DAO para ele
 // Apenas membros da DAO vão ver isso. Renderize todos os membros + quantidade de tokens
@@ -349,16 +360,15 @@ if (hasClaimedNFT) {
     )
   };
 
-
-
   // Renderiza a tela de cunhagem do NFT.
-    return (
+  return (
     <div className="mint-nft">
+            <center><ThirdwebNftMedia metadata={mnft.metadata} /></center>
       <h1>Para ser SafaDAO, precisa mintar seu NFT!</h1>
       <div className="btn-hero">
         <Web3Button 
           contractAddress={editionDropAddress}
-          action={contract => {
+          action= { async (contract) => { await
             contract.erc1155.claim(0, 1)
           }}
           onSuccess={() => {
@@ -374,6 +384,8 @@ if (hasClaimedNFT) {
       </div>
     </div>
   );
+
+
         
 
   
