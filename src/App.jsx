@@ -157,6 +157,9 @@ useEffect(() => {
 }, [hasClaimedNFT, proposals, address, vote]);
 
 
+
+
+
     // Se ele não tiver uma carteira conectada vamos chamar Connect Wallet
     if (!address) {
     return (
@@ -169,11 +172,6 @@ useEffect(() => {
     );
   }
 
- 
-
-
-
-  
 // Se ele não estiver conectado na rede goerli retorna erro
   if (address && (network?.[0].data.chain.id !== ChainId.Goerli)) {
     return (
@@ -194,8 +192,6 @@ useEffect(() => {
       </div>
     );
   }
-
-
 
 // Se o usuário já reivindicou seu NFT nós queremos mostrar a página interna da DAO para ele
 // Apenas membros da DAO vão ver isso. Renderize todos os membros + quantidade de tokens
